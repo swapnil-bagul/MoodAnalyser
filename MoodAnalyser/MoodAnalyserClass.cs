@@ -11,7 +11,6 @@ namespace MoodAnalyser
     {
         public string message;
         
-
         public MoodAnalyserClass(string message)
         {
             this.message = message;
@@ -30,11 +29,11 @@ namespace MoodAnalyser
             }
             catch (NullReferenceException ex)
             {
-                Console.WriteLine("Message is null");
-                return "happy";
+                //return "happy";
+                throw new CustomException(CustomException.ExpectionType.NULL_TYPE_EXCEPTION, "Message Should Not Be Null");
             } 
            
         }
-       
+        
     }
 }
