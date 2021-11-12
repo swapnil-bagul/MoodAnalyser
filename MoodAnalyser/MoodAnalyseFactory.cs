@@ -32,7 +32,7 @@ namespace MoodAnalyser
                 throw new CustomException(CustomException.ExpectionType.CONSTRUCTOR_NOT_FOUND, "Constructor is not Found");
             }
         }
-
+        //UC5
         //create object using Constructor
         public static object ObjectUsingParameterConstructor(string className, string constructorName, string message)
         {
@@ -61,6 +61,23 @@ namespace MoodAnalyser
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+
+        public static string InvokeAnalyserMood(string message,string methodName)
+        {
+            try
+            {
+                Type type = typeof(MoodAnalyserClass);
+                MethodInfo methodInfo = type.GetMethod(methodName);
+                MoodAnalyseFactory moodAnalyseFactory = new MoodAnalyseFactory();
+                object moodAnalyserObject =ObjectUsingParameterConstructor("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClass", "Happy");
+                object info = methodInfo.Invoke(moodAnalyserObject, null);
+                return info.ToString();
+            }
+            catch (NullReferenceException  ex)
+            {
+                throw new CustomException(CustomException.ExpectionType.NO_SUCH_METHOD, "Method not Found");
             }
         }
     }

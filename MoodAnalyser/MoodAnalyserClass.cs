@@ -28,10 +28,10 @@ namespace MoodAnalyser
             {
                 if (message.ToLower().Contains("sad"))
                 {
-                    return "SAD";
+                    return "Sad";
                 }
                 else
-                    return "HAPPY";
+                    return "Happy";
             }
             catch (NullReferenceException ex)
             {

@@ -85,14 +85,41 @@ namespace MoodAnalyserTest
             try
             {
                 actual = MoodAnalyseFactory.ObjectUsingParameterConstructor("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClass", "Happy");
-                //differnt constructor name
+                //Differnt constructor name
                 //actual = MoodAnalyseFactory.ObjectUsingParameterConstructor("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClassConstructor", "Happy");
+
+                //Differnt class name
+                //actual = MoodAnalyseFactory.ObjectUsingParameterConstructor("MoodAnalyser.MoodAnalyser", "MoodAnalyserClass", "Happy");
             }
             catch (CustomException ex)
             {
                 throw new Exception(ex.Message);
             }
             expected.Equals(actual);
+        }
+
+        [TestMethod ]
+        public void TestAnalyseUsingInvokeMethod()
+        {
+            //Arrange
+            string message = "Happy";
+            string methodName = "AnalyzeMood";
+            //string methodName = "AnalyzeMoodMethod";
+            string expected = "Happy";
+            string actual = " ";
+
+            //Act
+            try 
+            {
+                actual = MoodAnalyseFactory.InvokeAnalyserMood(message, methodName);
+            }
+            catch(CustomException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            //Assert
+            Assert.AreEqual(expected, actual);
+
         }
 
 
