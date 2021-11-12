@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections;
 using MoodAnalyser;
+using System;
 
 
 namespace MoodAnalyserTest
@@ -43,14 +44,35 @@ namespace MoodAnalyserTest
             {
                 MoodAnalyserClass moodAnalyserClass = new MoodAnalyserClass(message);
                 string actual = moodAnalyserClass.AnalyzeMood();
-            }
 
+            }
             //Assert
             catch (CustomException ex)
             {
                 Assert.AreEqual(expected, ex.Message );
             }
+            
         }
+
+        // Test Case :Given MoodAnalyse class name should return MoodAnalyse object.
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
+        {
+            
+            object expected = new MoodAnalyserClass();
+            object actual;
+            //string message = null;
+            try 
+            {
+                actual = MoodAnalyseFactory.CreateMoodAnalyse("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClass");
+            }
+            catch(CustomException ex)
+            {
+                throw new Exception(ex.Message);
+            }   
+            expected.Equals(actual);
+        }
+
 
     }
 }

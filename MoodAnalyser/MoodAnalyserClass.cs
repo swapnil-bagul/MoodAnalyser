@@ -10,6 +10,12 @@ namespace MoodAnalyser
     public class MoodAnalyserClass
     {
         public string message;
+
+        //default constructor
+        public MoodAnalyserClass ()
+        {
+           
+        }
         
         public MoodAnalyserClass(string message)
         {
@@ -30,10 +36,11 @@ namespace MoodAnalyser
             catch (NullReferenceException ex)
             {
                 //return "happy";
-                throw new CustomException(CustomException.ExpectionType.NULL_TYPE_EXCEPTION, "Message Should Not Be Null");
+                return "Message Should Not Be Null";
             } 
            
         }
+
         
     }
 }

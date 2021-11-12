@@ -17,7 +17,9 @@ namespace MoodAnalyser
             NULL_TYPE_EXCEPTION,
             EMPTY_TYPE_EXCEPTION,
             CLASS_NOT_FOUND,
-            CONSTRUCTOR_NOT_FOUND
+            CONSTRUCTOR_NOT_FOUND,
+            NO_SUCH_CLASS,
+            NO_SUCH_METHOD
         }
         //Create Constructor
         public CustomException (ExpectionType type ,string message): base (message )
