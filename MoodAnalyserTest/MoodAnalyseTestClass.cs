@@ -72,6 +72,28 @@ namespace MoodAnalyserTest
             }   
             expected.Equals(actual);
         }
+        /// <summary>
+        /// UC 5 Get object using Parameterise constructor
+        /// </summary>
+        [TestMethod ]
+        public void GetMoodAnalyserUsingParameterConstructor()
+        {
+            string message = "Happy";
+            object expected = new MoodAnalyserClass(message );
+            object actual;
+
+            try
+            {
+                actual = MoodAnalyseFactory.ObjectUsingParameterConstructor("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClass", "Happy");
+                //differnt constructor name
+                //actual = MoodAnalyseFactory.ObjectUsingParameterConstructor("MoodAnalyser.MoodAnalyserClass", "MoodAnalyserClassConstructor", "Happy");
+            }
+            catch (CustomException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            expected.Equals(actual);
+        }
 
 
     }
